@@ -1,16 +1,55 @@
 #region
+"""
+功能丰富的 GUI 应用
+此应用程序使用 Tkinter 库创建了一个功能丰富的 GUI 应用，包含以下功能：
+1. 创建主窗口并设置窗口属性（标题、大小、位置、图标等）。
+2. 检查 ollama 是否安装，如果未安装则显示错误消息并关闭应用。
+3. 创建输入框，允许用户输入问题，并根据焦点事件调整输入框的提示文字和颜色。
+4. 创建输出框，用于显示用户输入的内容。
+5. 使用多线程更新输出框内容。
+6. 创建多个按钮（画布功能、控制台功能、模型设置），并绑定相应的功能（部分功能尚未开放）。
+7. 创建菜单，包含选项和其他信息的子菜单，提供设置和检查功能。
+8. 提供主题切换和语言切换功能。
+9. 在关闭应用时，终止相关进程并延迟关闭窗口。
+主要模块和函数：
+- ollama安裝檢查: 用于检查 ollama 是否安装。
+- 模型設定視窗: 用于模型设置的窗口。
+- 顏色: 根据当前主题设置输入框的颜色。
+- on_text_focus_in: 当输入框获得焦点时，清除提示文字并设置正常输入颜色。
+- on_text_focus_out: 当输入框失去焦点时，如果输入框为空，则插入提示文字并设置颜色。
+- send_message: 处理用户输入的消息，并将其显示在输出框中。
+- adjust_text_height: 根据输入框的内容调整其高度。
+- 模型開: 打开模型设置窗口。
+- set1, set2, set3: 菜单选项的回调函数。
+- info1, info2, info3: 信息菜单选项的回调函数。
+- toggle, toggle_theme, toggle_theme1, toggle_theme2, toggle_theme3: 主题切换相关函数。
+- switch_language: 切换应用程序的语言。
+- open_settings_window: 打开设置窗口。
+- threaded_function: 使用多线程执行函数。
+- on_closing: 关闭应用时终止相关进程并延迟关闭窗口。
+使用方法：
+1. 运行此脚本以启动 GUI 应用。
+2. 在输入框中输入问题并按 Enter 键提交。
+3. 使用菜单和按钮访问不同的功能。
+4. 在设置窗口中切换主题和语言。
+5. 关闭应用时，确保相关进程被终止。
+注意事项：
+- 确保 ollama 已正确安装，否则应用将无法正常运行。
+- 部分功能尚未开放，点击相关按钮会显示错误消息。
+"""
 
 # 宣告使用的函式庫
-from time import sleep
-import tkinter as tk
-#import ctypes
-import subprocess
-import threading
-import tkinter.ttk as ttk
-from tkinter import messagebox
-import ollama安裝檢查
-import 模型設定視窗
-from 模型設定視窗 import 選定模型
+from time import sleep  # 用于延迟操作
+import tkinter as tk  # 导入 Tkinter 库，用于创建 GUI 应用
+#import ctypes  # 可选库，用于隐藏命令提示符窗口
+import subprocess  # 用于执行系统命令
+import threading  # 用于多线程操作
+import tkinter.ttk as ttk  # 导入 Tkinter 的 ttk 模块，用于样式和小部件
+from tkinter import messagebox  # 导入消息框模块，用于显示消息框
+
+import ollama安裝檢查  # 导入自定义模块，用于检查 ollama 是否安装
+import 模型設定視窗  # 导入自定义模块，用于模型设置窗口
+from 模型設定視窗 import 選定模型  # 从模型设置窗口模块中导入选定模型函数
 
 #######################################################################################################
 # 创建窗口
