@@ -1,19 +1,12 @@
-import tkinter as tk
+
+import tkinter as tk # 載入 tkinter 模組
+from 視窗至中模塊 import 視窗至中 # 載入視窗至中模組
 def 設定視窗():
 
 
-    視窗 = tk.Tk()
-    視窗.title("設定視窗")
-
-    螢幕寬=視窗.winfo_screenwidth()    # 取得螢幕寬度
-    螢幕高=視窗.winfo_screenheight()  # 取得螢幕高度
-
-    視窗寬 = int((螢幕寬)/3)
-    視窗高 = int((螢幕高)/3)
-
-    左上x軸=int((螢幕寬-視窗寬)/2)       # 計算左上 x 座標
-    左上y軸=int((螢幕高-視窗高)/2)      # 計算左上 y 座標
-    視窗.geometry(f'{視窗寬}x{視窗高}+{左上x軸}+{左上y軸}')     #要將視窗置中顯示
+    設定視窗口 = tk.Tk() # 建立主視窗
+    設定視窗口.title("設定視窗") # 設定主視窗標題
+    視窗至中(設定視窗口) # 設定視窗至中
 
 
 
@@ -28,7 +21,6 @@ def 設定視窗():
 
 
 
-
-    視窗.mainloop()
+    設定視窗口.mainloop()
 
 設定視窗()
