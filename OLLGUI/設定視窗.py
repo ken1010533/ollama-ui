@@ -1,9 +1,8 @@
-from operator import truediv
 import tkinter as tk  # 載入 tkinter 模組
-from 視窗至中模塊 import 視窗至中  # 載入視窗至中模組
-import 語言設定模塊  # 載入語言設定模組
+from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
+import 模塊.語言設定模塊 as 語言設定模塊  # 載入語言設定模塊
 from tkinter import ttk  # 載入 ttk 模組
-import 讀檔  # 載入讀檔模組 (請確認名稱)
+import 模塊.讀檔模塊 as 讀檔模塊  # 載入讀檔模塊
 import json
 
 設定檔="set.json"
@@ -81,7 +80,7 @@ def 設定視窗口():
     當前語言=讀取設定()
 
     def 更新語言(event):
-        處存設定(語言選單.get())
+        寫入設定(語言選單.get())
 
 
 
@@ -89,7 +88,7 @@ def 設定視窗口():
     # 語言選單
     global 語言選單
     ttk.Label(設定視窗, text=設定的語言翻譯).pack()
-    語言選單 = ttk.Combobox(設定視窗, values=讀檔.語言翻譯)  # 從讀檔模組獲取可選語言
+    語言選單 = ttk.Combobox(設定視窗, values=讀檔模塊.語言翻譯)  # 從讀檔模組獲取可選語言
     語言選單.pack()
     語言選單.set(當前語言)  # 預設選擇繁體中文
     語言選單.bind("<<ComboboxSelected>>", 更新語言)  # 當選擇語言時，執行語言選擇函數
