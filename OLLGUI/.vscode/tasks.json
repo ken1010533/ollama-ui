@@ -7,7 +7,7 @@
             "command": "git add -A && git commit -m \"Auto commit: $(date '+%Y-%m-%d %H:%M:%S')\"",
             "problemMatcher": [],
             "runOptions": { "runOn": "folderOpen" },
-            "repeat": { "interval": 180000 }
+            "repeat": { "interval": 1800 }
         }
     ]
 }
