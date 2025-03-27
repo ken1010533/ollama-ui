@@ -2,7 +2,7 @@ import tkinter as tk  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
 import 模塊.語言設定模塊 as 語言設定模塊  # 載入語言設定模塊
 import 模塊.讀檔模塊 as 讀檔模塊  # 載入讀檔模塊
-import 模塊.儲存設定檔 as 設定模塊  # 新增的設定模塊
+import 模塊.儲存設定檔 as 設定模塊  # 載入儲存設定檔模塊且命名為設定模塊
 import tkinter.ttk as ttk  # 載入 ttk 模組
 def 設定視窗口():
     設定視窗的標題 = 語言設定模塊.語言['設定視窗標題']  # 設定視窗的標題
