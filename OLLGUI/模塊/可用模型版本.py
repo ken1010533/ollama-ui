@@ -2,7 +2,7 @@
 import requests
 # 從bs4模組導入BeautifulSoup，用於解析HTML文檔
 from bs4 import BeautifulSoup
-
+ 
 # 定義要爬取的目標URL（Ollama模型庫中的llama3.1頁面）
 url = "https://ollama.com/library/gemma3"
 

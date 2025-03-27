@@ -1,0 +1,13 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Git Auto Commit",
+            "type": "shell",
+            "command": "git add -A && git commit -m \"Auto commit: $(date '+%Y-%m-%d %H:%M:%S')\"",
+            "problemMatcher": [],
+            "runOptions": { "runOn": "folderOpen" },
+            "repeat": { "interval": 180000 }
+        }
+    ]
+}
