@@ -1,0 +1,9 @@
+[
+    {"LangCultureName": "zh-TW", "DisplayName": "Chinese - Taiwanese"},
+    {"LangCultureName": "zh-CH", "DisplayName": "Chinese - Simplified"},
+    {"LangCultureName": "fr-FR", "DisplayName": "French - France"},
+    {"LangCultureName": "ja-JP", "DisplayName": "Japanese - Japan"},
+    {"LangCultureName": "ko-KR", "DisplayName": "Korean - South Korea"},
+    {"LangCultureName": "en-US", "DisplayName": "English - United States"}
+
+]

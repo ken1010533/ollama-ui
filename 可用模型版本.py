@@ -37,7 +37,7 @@ if response.status_code == 200:
             # 檢查是否找到目標元素
             if input_element:
                 # 獲取 input 元素的 value 屬性值
-                value = input_element.get("value")
+                value = input_element.get("value") # type: ignore
                 # 輸出結果
                 print("可用模型指令:", value)
             else:

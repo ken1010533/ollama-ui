@@ -1,0 +1,9 @@
+[
+    {"LangCultureName": "zh-TW", "DisplayName": "中国語（繁体字）"},
+    {"LangCultureName": "zh-CH", "DisplayName": "中国語（簡体字）"},
+    {"LangCultureName": "fr-FR", "DisplayName": "フランス語 - フランス"},
+    {"LangCultureName": "ja-JP", "DisplayName": "日本語 - 日本"},
+    {"LangCultureName": "ko-KR", "DisplayName": "韓国語 - 韓国"},
+    {"LangCultureName": "en-US", "DisplayName": "英語 - 米国"}
+
+]

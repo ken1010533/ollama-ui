@@ -25,7 +25,7 @@ labels = []
 # 遍歷所有包含標籤的div元素(根據class屬性定位)
 for div in soup.find_all("div", class_="flex flex-wrap space-x-2"):
     # 在每個div中查找所有<span>標籤，提取文字並去除首尾空白
-    spans = [span.text.strip() for span in div.find_all("span")]
+    spans = [span.text.strip() for span in div.find_all("span")] # type: ignore
     # 將標籤列表轉換為字串，若無標籤則顯示"無標籤"
     labels.append(", ".join(spans) if spans else "無標籤")
 
