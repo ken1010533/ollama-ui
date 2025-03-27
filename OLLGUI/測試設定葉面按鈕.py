@@ -13,6 +13,7 @@ root.title("PGT 設定頁面")
 
 # 使用 Notebook 實現分頁
 notebook = ttk.Notebook(root)
+
 notebook.pack(padx=10, pady=10, fill="both", expand=True)
 
 # 分頁 1：基本設定
