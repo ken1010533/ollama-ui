@@ -1,7 +1,7 @@
 # 導入requests庫，用於發送HTTP請求
 import requests
 # 從bs4模組導入BeautifulSoup，用於解析HTML文檔
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup # type: ignore
 
 # 定義要爬取的目標URL
 url = "https://ollama.com/search?q=llama3.3"
