@@ -1,17 +1,21 @@
 import json
+import os
 
-設定檔 = "set.json"
+設定檔案 = "設定.json"
 
+# 讀取設定
 def 讀取設定():
-    """讀取設定檔中的語言設定"""
-    try: # 嘗試讀取設定檔
-        with open(設定檔, "r", encoding="utf-8") as f: # 使用 utf-8 編碼讀取設定檔
-            return json.load(f).get("語言","") # 預設為繁體中文
-    except (FileNotFoundError, json.JSONDecodeError): # 如果設定檔不存在或格式錯誤，則返回預設語言
-        return "" # 預設為繁體中文
-    
-    
-def 寫入設定(語言): # 將語言設定寫入設定檔
-    """將語言設定寫入設定檔""" 
-    with open(設定檔, "w", encoding="utf-8") as f: # 使用 utf-8 編碼寫入設定檔
-        json.dump({"語言": 語言}, f, ensure_ascii=False, indent=4) # 將語言設定寫入設定檔
+    if not os.path.exists(設定檔案):
+        return {}  # 檔案不存在時回傳空字典
+    try:
+        with open(設定檔案, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except json.JSONDecodeError:
+        return {}  # JSON 解析失敗時回傳空字典
+
+# 寫入設定
+def 寫入設定(**kwargs):
+    設定 = 讀取設定()
+    設定.update(kwargs)
+    with open(設定檔案, "w", encoding="utf-8") as f:
+        json.dump(設定, f, ensure_ascii=False, indent=4)
