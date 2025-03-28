@@ -1,4 +1,4 @@
-import 模塊.儲存設定檔 as 設定模塊
+from ..模塊 import 儲存設定檔 as 設定模塊
 
 
 
