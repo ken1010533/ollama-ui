@@ -1,5 +1,5 @@
+from calendar import c
 import tkinter as tk
-from turtle import left
 
 #from zmq import Frame  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
@@ -37,7 +37,7 @@ def 設定視窗口():
 
 
     顏色切換的格式 = tk.Frame(設定視窗)
-    顏色切換的格式.pack(side='left'+'top')
+    顏色切換的格式.grid()
     # 顏色切換設定標題
     顏色設定標題 = tk.Label(顏色切換的格式, text=設定的顏色切換)
     顏色設定標題.grid(column=0, row=0)
@@ -56,7 +56,7 @@ def 設定視窗口():
 
 
     語言選單的格式 = tk.Frame(設定視窗)
-    語言選單的格式.pack()
+    語言選單的格式.grid()
     # 語言選單標題
     語言選單標題 = ttk.Label(語言選單的格式, text=設定的語言翻譯)
     語言選單標題.grid(column=0, row=3)
@@ -80,13 +80,14 @@ def 設定視窗口():
 
 
     取消和儲存並關閉按鈕=tk.Frame(設定視窗)
-    取消和儲存並關閉按鈕.pack()
+    取消和儲存並關閉按鈕.grid_columnconfigure(1, weight=1)
+    取消和儲存並關閉按鈕.grid_rowconfigure(1, weight=1)
     # 按鈕
     取消按鈕 = tk.Button(取消和儲存並關閉按鈕, text=設定的取消按鈕, command=設定視窗.destroy)
-    取消按鈕.grid(column=8, row=9, sticky=tk.W+tk.S)
+    取消按鈕.grid(column=0, row=0, sticky="ew", padx=5, pady=5)
     
     儲存並關閉按鈕 = tk.Button(取消和儲存並關閉按鈕, text=設定的儲存並關閉按鈕, command=更新設定並關閉)
-    儲存並關閉按鈕.grid(column=9, row=9, sticky=tk.W+tk.S)
+    儲存並關閉按鈕.grid(column=1, row=0, sticky="ew", padx=5, pady=5)
 
     設定視窗.mainloop()
 
