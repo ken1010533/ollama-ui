@@ -1,6 +1,4 @@
-from calendar import c
 import tkinter as tk
-
 #from zmq import Frame  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
 import 模塊.語言設定模塊 as 語言設定模塊  # 載入語言設定模塊
