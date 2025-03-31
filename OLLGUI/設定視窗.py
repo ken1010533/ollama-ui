@@ -1,6 +1,7 @@
 import tkinter as tk
+from turtle import left
 
-from zmq import Frame  # 載入 tkinter 模組
+#from zmq import Frame  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
 import 模塊.語言設定模塊 as 語言設定模塊  # 載入語言設定模塊
 import 模塊.讀檔模塊 as 讀檔模塊  # 載入讀檔模塊
@@ -36,7 +37,7 @@ def 設定視窗口():
 
 
     顏色切換的格式 = tk.Frame(設定視窗)
-    顏色切換的格式.grid(column=0, row=0, columnspan=2)
+    顏色切換的格式.pack(side='left'+'top')
     # 顏色切換設定標題
     顏色設定標題 = tk.Label(顏色切換的格式, text=設定的顏色切換)
     顏色設定標題.grid(column=0, row=0)
@@ -55,7 +56,7 @@ def 設定視窗口():
 
 
     語言選單的格式 = tk.Frame(設定視窗)
-    語言選單的格式.grid(column=0, row=3)
+    語言選單的格式.pack()
     # 語言選單標題
     語言選單標題 = ttk.Label(語言選單的格式, text=設定的語言翻譯)
     語言選單標題.grid(column=0, row=3)
@@ -79,8 +80,7 @@ def 設定視窗口():
 
 
     取消和儲存並關閉按鈕=tk.Frame(設定視窗)
-    取消和儲存並關閉按鈕.grid(column=9, row=9,sticky=tk.W+tk.S, columnspan=10)
-
+    取消和儲存並關閉按鈕.pack()
     # 按鈕
     取消按鈕 = tk.Button(取消和儲存並關閉按鈕, text=設定的取消按鈕, command=設定視窗.destroy)
     取消按鈕.grid(column=8, row=9, sticky=tk.W+tk.S)
