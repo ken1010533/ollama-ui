@@ -1,4 +1,5 @@
 import tkinter as tk
+
 #from zmq import Frame  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
 import 模塊.語言設定模塊 as 語言設定模塊  # 載入語言設定模塊
@@ -18,6 +19,7 @@ def 設定視窗口():
     # 創建主視窗
     設定視窗 = tk.Tk()
     設定視窗.title(設定視窗的標題)
+    設定視窗.resizable(False,False)
     視窗至中(設定視窗)
 
 
@@ -62,7 +64,7 @@ def 設定視窗口():
     # 語言選單
     global 語言選單
     語言選單 = ttk.Combobox(語言選單的格式, values=讀檔模塊.語言翻譯)
-    語言選單.grid(column=1, row=3)
+    語言選單.grid(column=1, row=3,)
     語言選單.set(當前語言 if 當前語言 else 讀檔模塊.語言翻譯[0])  # 預設選擇第一個語言
 
 
@@ -78,14 +80,13 @@ def 設定視窗口():
 
 
     取消和儲存並關閉按鈕=tk.Frame(設定視窗)
-    取消和儲存並關閉按鈕.grid_columnconfigure(1, weight=1)
-    取消和儲存並關閉按鈕.grid_rowconfigure(1, weight=1)
+    取消和儲存並關閉按鈕.place(relx=0.98,rely=0.98,anchor="se")
     # 按鈕
     取消按鈕 = tk.Button(取消和儲存並關閉按鈕, text=設定的取消按鈕, command=設定視窗.destroy)
-    取消按鈕.grid(column=0, row=0, sticky="ew", padx=5, pady=5)
+    取消按鈕.grid(column=0, row=0, sticky="ew", padx=8, pady=0.1)
     
     儲存並關閉按鈕 = tk.Button(取消和儲存並關閉按鈕, text=設定的儲存並關閉按鈕, command=更新設定並關閉)
-    儲存並關閉按鈕.grid(column=1, row=0, sticky="ew", padx=5, pady=5)
+    儲存並關閉按鈕.grid(column=1, row=0, sticky="ew", padx=0.1, pady=0.1)
 
     設定視窗.mainloop()
 
