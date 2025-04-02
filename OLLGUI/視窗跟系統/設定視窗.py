@@ -41,7 +41,7 @@ def 設定視窗口():
     顏色切換的格式.grid()
     # 顏色切換設定標題
     顏色設定標題 = tk.Label(顏色切換的格式, text=設定的顏色切換)
-    顏色設定標題.grid(column=0, row=0)
+    顏色設定標題.grid(column=0, row=1)
 
     # 顏色切換選項
     global 以切換到的顏色  
@@ -49,23 +49,24 @@ def 設定視窗口():
     顏色_白色 = tk.Radiobutton(顏色切換的格式,text=設定的顏色切換_白色, variable=以切換到的顏色, value=設定的顏色切換_白色)
     顏色_黑色 = tk.Radiobutton(顏色切換的格式,text=設定的顏色切換_黑色, variable=以切換到的顏色, value=設定的顏色切換_黑色)
     
-    顏色_白色.grid(column=1, row=0)
-    顏色_黑色.grid(column=2, row=0)
+    顏色_白色.grid(column=1, row=1)
+    顏色_黑色.grid(column=2, row=1)
 
 
 
 
 
     語言選單的格式 = tk.Frame(設定視窗)
-    語言選單的格式.grid_columnconfigure(0, weight=1)
+    語言選單的格式.grid_columnconfigure(2, weight=1)
+    語言選單的格式.grid(padx=2.5, pady=2.5)
     # 語言選單標題
     語言選單標題 = ttk.Label(語言選單的格式, text=設定的語言翻譯)
-    語言選單標題.grid(column=0, row=0, sticky="ew")
+    語言選單標題.grid(column=0, row=1, sticky="ew")
 
     # 語言選單
     global 語言選單
     語言選單 = ttk.Combobox(語言選單的格式, values=讀檔模塊.語言翻譯,state="readonly") 
-    語言選單.grid(column=0, row=1,sticky="ew")
+    語言選單.grid(column=1, row=1,sticky="ew",ipadx=20)
     語言選單.set(當前語言 if 當前語言 else 讀檔模塊.語言翻譯[0])  # 預設選擇第一個語言
 
 
