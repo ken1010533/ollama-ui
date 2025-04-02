@@ -1,3 +1,4 @@
+
 import tkinter as tk
 
 #from zmq import Frame  # 載入 tkinter 模組
@@ -56,15 +57,15 @@ def 設定視窗口():
 
 
     語言選單的格式 = tk.Frame(設定視窗)
-    語言選單的格式.grid()
+    語言選單的格式.grid_columnconfigure(0, weight=1)
     # 語言選單標題
     語言選單標題 = ttk.Label(語言選單的格式, text=設定的語言翻譯)
-    語言選單標題.grid(column=0, row=3)
+    語言選單標題.grid(column=0, row=0, sticky="ew")
 
     # 語言選單
     global 語言選單
-    語言選單 = ttk.Combobox(語言選單的格式, values=讀檔模塊.語言翻譯)
-    語言選單.grid(column=1, row=3,)
+    語言選單 = ttk.Combobox(語言選單的格式, values=讀檔模塊.語言翻譯,state="readonly") 
+    語言選單.grid(column=0, row=1,sticky="ew")
     語言選單.set(當前語言 if 當前語言 else 讀檔模塊.語言翻譯[0])  # 預設選擇第一個語言
 
 
