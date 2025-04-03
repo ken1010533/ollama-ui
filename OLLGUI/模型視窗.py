@@ -1,6 +1,3 @@
-
-from multiprocessing import Value
-from optparse import Values
 import tkinter as tk
 
 #from zmq import Frame  # 載入 tkinter 模組
@@ -36,19 +33,117 @@ def 模型設定視窗口():
         模型設定視窗.destroy()
 ###
 
+    模型下拉選單格式=tk.Frame(模型設定視窗)
+    模型下拉選單格式.grid_columnconfigure(0,weight=1)
+    模型下拉選單格式.grid(padx=0.5, pady=0.5)
+    模型下拉選單=ttk.Combobox(模型設定視窗,state="readonly",values=1)
+    模型下拉選單.grid(column=0, row=1,sticky="ew",ipadx=36)
 
 
 
 
 
-    模型下拉選單=ttk.Combobox(模型設定視窗,values=['j654565768989786','0987654345678','23456mthbtnyj78','6hnbfnggnh54','4yj6u5yhty6uhtn','5jxthrhtjy6njthtn'])
-    模型下拉選單.grid()
 
-    asds=['j654565768989786','0987654345678','23456mthbtnyj78','6hnbfnggnh54','4yj6u5yhty6uhtn','5jxthrhtjy6njthtn']
-    Valuea=tk.StringVar()
-    Valuea.set('')
-    魔行下=tk.OptionMenu(模型設定視窗,Valuea,*asds)
-    魔行下.grid()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    模型單行輸入框格式=tk.Frame(模型設定視窗)
+
+    模型單行輸入框格式.grid(padx=1.5, pady=1.5,column=0, row=0,sticky="wn")
+    模型單行輸入框=tk.Entry(模型單行輸入框格式)
+    模型單行輸入框.grid(ipadx=30)
+
+    模型查詢按鈕格式=tk.Frame(模型設定視窗)
+    模型查詢按鈕格式.grid(padx=1.5, pady=1.5,column=0, row=0,sticky="wn")
+    
+
+
+
+    
+    模型查詢按鈕=tk.Button(模型單行輸入框格式)
+    模型查詢按鈕.grid(column=1, row=0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
