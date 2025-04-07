@@ -57,8 +57,8 @@ def 設定視窗口():
 
 
     語言選單的格式 = tk.Frame(設定視窗)
-    語言選單的格式.grid_columnconfigure(2, weight=1)
-    語言選單的格式.grid(padx=2.5, pady=2.5)
+    語言選單的格式.grid_columnconfigure(1, weight=1)
+    語言選單的格式.grid(padx=2.5, pady=2.5, sticky="ew")
     # 語言選單標題
     語言選單標題 = ttk.Label(語言選單的格式, text=設定的語言翻譯)
     語言選單標題.grid(column=0, row=1, sticky="ew")
