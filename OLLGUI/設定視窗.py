@@ -2,7 +2,7 @@
 import tkinter as tk
 
 #from zmq import Frame  # 載入 tkinter 模組
-from 模塊.視窗至中模塊 import 視窗至中  # 載入視窗至中模組
+from 模塊.視窗至中模塊 import 設定視窗至中  # 載入視窗至中模組
 import 模塊.語言設定模塊 as 語言設定模塊  # 載入語言設定模塊
 import 模塊.讀檔模塊 as 讀檔模塊  # 載入讀檔模塊
 import 模塊.儲存設定檔 as 設定模塊  # 載入儲存設定檔模塊
@@ -21,7 +21,7 @@ def 設定視窗口():
     設定視窗 = tk.Tk()
     設定視窗.title(設定視窗的標題)
     設定視窗.resizable(False,False)
-    視窗至中(設定視窗)
+    設定視窗至中(設定視窗)
 
 
     ### 讀取設定值 ###

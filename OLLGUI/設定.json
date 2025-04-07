@@ -1,4 +1,4 @@
 {
-    "語言": "ja-JP",
-    "顏色": "白色"
+    "ollama開關": "false",
+    "查尋ollama模型結果": "llama3"
 }
