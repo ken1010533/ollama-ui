@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from config import 參數紀錄
+from 測試.config import 參數紀錄
 
 def 顯示參數結果():
     視窗 = tk.Tk()
