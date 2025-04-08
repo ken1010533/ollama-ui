@@ -1,0 +1,4 @@
+{
+    "ollama開關": "false",
+    "查尋ollama模型結果": "ollama run llama3.3"
+}

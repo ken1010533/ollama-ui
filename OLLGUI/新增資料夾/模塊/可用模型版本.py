@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup
 網址 = None
 if 網址 is None:  
     # 如果網址為None，則從用戶輸入獲取網址
-    網址 = "https://ollama.com/library/"+"gemma3" # type: ignore
-
+    網址 = "https://ollama.com/library/"
 def 可用模型指令(url=網址):  # 定義函數以獲取可用模型指令
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"}  # 設定請求頭，模擬瀏覽器行為
     response = requests.get(url, headers=headers)  # 發送GET請求獲取網頁內容

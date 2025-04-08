@@ -1,5 +1,8 @@
 import tkinter as tk
-
+from urllib.request import urlopen
+from urllib.error import URLError
+import webbrowser
+from tkinter import messagebox  # 載入 tkinter 模組
 #from zmq import Frame  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 模型視窗至中  # 載入視窗至中模組
 import 模塊.語言設定模塊 as 語言模型設定模塊  # 載入語言模型設定模塊
@@ -11,6 +14,13 @@ def 模型設定視窗口():
     模型設定視窗的標題 = 語言模型設定模塊.語言['模型設定視窗標題']
     模型設定的取消按鈕 = 語言模型設定模塊.語言['模型設定的取消按鈕']
     模型設定的儲存並關閉按鈕 = 語言模型設定模塊.語言['模型設定的儲存並離開按鈕']
+
+    模型設定的查詢按鈕 = 語言模型設定模塊.語言['模型設定的查詢按鈕']
+    模型設定的詳細資訊 = 語言模型設定模塊.語言['模型設定的詳細資訊']
+    模型設定的選擇模型 = 語言模型設定模塊.語言['模型設定的選擇模型']
+    網路連線異常 = 語言模型設定模塊.語言['網路連線異常']
+    請檢查網路連線或稍後再試 = 語言模型設定模塊.語言['請檢查網路連線或稍後再試']
+
 
     # 創建主視窗
     模型設定視窗 = tk.Tk()
@@ -58,23 +68,39 @@ def 模型設定視窗口():
     模型單行輸入框=tk.Entry(模型單行輸入框跟查詢按鈕格式,font=("Arial", 10)) # 創建單行輸入框
     模型單行輸入框.place(relwidth=0.8,relheight=1) # 設定大小和位置
 
-
-    # 收尋模型模塊.url = "https://ollama.com/search?q=" + 模型單行輸入框以輸入框的值 # 設定url
-
-
     def 查詢模型(): # 查詢模型的函數
-        收尋模型模塊.url = f"https://ollama.com/search?q={模型單行輸入框.get()}" # 設定url
-        收尋模型模塊.爬取網頁內容(收尋模型模塊.url) # 爬取網頁內容
-        url =收尋模型模塊.url # 設定url
-        titles, labels = 收尋模型模塊.爬取網頁內容(url)
-        查尋模型結果選單.set("") # 清空下拉選單
-        查尋模型結果選單["values"] =titles # 設定下拉選單的值
+        def 檢查網路連線(測試網址="http://www.google.com", 等待時間=5000):
+            """
+            檢查當前是否有網路連線
+            參數:
+                測試網址: 用於測試的網站地址（預設為Google）
+                等待時間: 連接超時時間（秒）
+            回傳:
+                True 如果有網路連線，False 如果沒有
+            """
+            try:
+                urlopen(測試網址, timeout=等待時間)
+                return True
+            except URLError:
+                return False
+        檢查網路連線() # 檢查網路連線
+
+        if 檢查網路連線():
+            print("✅ 網路連線正常")
+            收尋模型模塊.url = f"https://ollama.com/search?q={模型單行輸入框.get()}" # 設定url
+            收尋模型模塊.爬取網頁內容(收尋模型模塊.url) # 爬取網頁內容
+            url =收尋模型模塊.url # 設定url
+            titles, labels = 收尋模型模塊.爬取網頁內容(url)
+            查尋模型結果選單.set("") # 清空下拉選單
+            查尋模型結果選單["values"] =titles # 設定下拉選單的值
+        
+        else:
+            messagebox.showerror(網路連線異常, 請檢查網路連線或稍後再試)
+            print("❌ 網路連線異常，請檢查網路連線")
+    
 
 
 
-        # print(模型單行輸入框以輸入框的值) # 印出單行輸入框的值
-        # print(模型單行輸入框.get()) # 印出url
-        # print(收尋模型模塊.url) # 印出url
 
 
 
@@ -82,12 +108,20 @@ def 模型設定視窗口():
 
 
 
-    模型查詢按鈕=tk.Button(模型單行輸入框跟查詢按鈕格式,text='查詢',font=("Arial", 10),command=查詢模型) # 創建查詢按鈕
+
+
+
+
+
+
+
+
+    模型查詢按鈕=tk.Button(模型單行輸入框跟查詢按鈕格式,text=模型設定的查詢按鈕,font=("Arial", 10),command=查詢模型) # 創建查詢按鈕
     模型查詢按鈕.place(relx=0.8,relwidth=0.2,relheight=1) # 設定大小和位置
 
 
     def 顯示已選擇的模型(event): # 當選擇模型時更新標籤的文字
-        以選擇模型.config(text="選擇模型:"+查尋模型結果選單.get()) # 更新標籤的文字
+        以選擇模型.config(text=模型設定的選擇模型+查尋模型結果選單.get()) # 更新標籤的文字
         當前模型設定["查尋ollama模型結果"]=查尋模型結果選單.get()
         以選擇的查詢模型結果.set('')  # 清空當前顯示的值
         以選擇的查詢模型結果['values'] = []  # 清空下拉選單的值   
@@ -107,8 +141,7 @@ def 模型設定視窗口():
     查尋模型結果選單.bind("<<ComboboxSelected>>",顯示已選擇的模型) # 當選擇模型時更新標籤的文字
 
     def 更新以選擇的查詢模型結果(event): # 當選擇模型時更新標籤的文字
-        以選擇模型.config(text="選擇模型:"+以選擇的查詢模型結果.get()) # 更新標籤的文字
-  
+        以選擇模型.config(text=模型設定的選擇模型+以選擇的查詢模型結果.get()) # 更新標籤的文字
         當前模型設定["查尋ollama模型結果"]=以選擇的查詢模型結果.get()
 
 
@@ -121,10 +154,19 @@ def 模型設定視窗口():
 
 
 
-    以選擇模型=tk.Label(以選擇模型跟詳細資訊格式,text="選擇模型:"+查尋模型結果選單.get(),font=("Arial", 11)) # 創建標籤
+    以選擇模型=tk.Label(以選擇模型跟詳細資訊格式,text=模型設定的選擇模型+查尋模型結果選單.get(),font=("Arial", 11)) # 創建標籤
     以選擇模型.pack(fill=tk.X, padx=1.5, pady=0.5,side="left")  # 設定大小和位置
 
-    以選擇模型的詳細資訊=tk.Button(以選擇模型跟詳細資訊格式,text="詳細資訊",font=("Arial", 10)) # 創建詳細資訊按鈕
+
+    def 更多資訊():
+        webbrowser.open(可用版本.網址)
+
+
+
+
+
+
+    以選擇模型的詳細資訊=tk.Button(以選擇模型跟詳細資訊格式,text=模型設定的詳細資訊,font=("Arial", 10),command=更多資訊) # 創建詳細資訊按鈕
     以選擇模型的詳細資訊.pack(fill=tk.X, padx=1.5, pady=1,side="right") # 設定大小和位置
 
 
