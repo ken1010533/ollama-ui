@@ -1,4 +1,3 @@
-# 參數輸出視窗.py
 import tkinter as tk
 from tkinter import ttk
 from config import 參數紀錄
