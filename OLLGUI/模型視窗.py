@@ -5,7 +5,7 @@ import webbrowser
 from tkinter import messagebox  # 載入 tkinter 模組
 #from zmq import Frame  # 載入 tkinter 模組
 from 模塊.視窗至中模塊 import 模型視窗至中  # 載入視窗至中模組
-import 語言設定模塊 as 語言模型設定模塊  # 載入語言模型設定模塊
+import 模塊.語言設定模塊 as 語言模型設定模塊  # 載入語言模型設定模塊
 import 模塊.儲存設定檔 as 設定模塊  # 載入儲存模型設定檔模塊
 import tkinter.ttk as ttk  # 載入 ttk 模組
 import 模塊.收尋模型以及版本 as 收尋模型模塊  # 載入收尋模型以及版本模塊
