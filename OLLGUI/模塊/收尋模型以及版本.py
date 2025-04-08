@@ -4,9 +4,11 @@ import requests
 from bs4 import BeautifulSoup # type: ignore
 
 # 定義要爬取的目標URL
-url = "https://ollama.com/search?q="+"llama3.3"
-# url = None
-
+# url = "https://ollama.com/search?q="+"llama3.3"
+url = None
+if url is None:
+    # 如果url為None，則從用戶輸入獲取URL
+    url = "https://ollama.com/search?q="
 def    爬取網頁內容(url):
     # 設置請求頭偽裝成瀏覽器訪問(避免被網站封鎖)
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -40,4 +42,4 @@ def    爬取網頁內容(url):
     
     return titles,labels # 返回標題和標籤的列表
 
-爬取網頁內容(url) # 執行爬取函數，傳入URL參數
+
