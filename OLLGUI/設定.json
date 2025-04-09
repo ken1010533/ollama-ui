@@ -1,6 +1,6 @@
 {
     "ollama開關": "false",
-    "查尋ollama模型結果": "ollama run deepseek-r1:7b",
+    "查尋ollama模型結果": "ollama run deepseek-r1:1.5b",
     "語言": "zh-TW",
     "顏色": "黑色",
     "字體大小": 15,
