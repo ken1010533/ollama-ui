@@ -20,19 +20,19 @@ def 可用模型指令(url=網址):  # 定義函數以獲取可用模型指令
         if pre_tags:
             for pre in pre_tags:
                 可用模型參數.append(pre.text.strip())  # 追加到列表
-            print(f"找到的模型指令: {可用模型參數}")  # 輸出找到的指令 
+            # print(f"找到的模型指令: {可用模型參數}")  # 輸出找到的指令 
         else:
-            print("嘗試查找其他格式的指令...")  # 如果沒有找到pre標籤，則嘗試查找其他格式的指令 
+            # print("嘗試查找其他格式的指令...")  # 如果沒有找到pre標籤，則嘗試查找其他格式的指令 
             input_elements = soup.find_all("input", {"name": "command"})  # 查找所有input元素
             for input_element in input_elements:  # 查找所有input元素 
                 if input_element.has_attr("value"):  # 檢查是否有value屬性
                     可用模型參數.append(input_element["value"])  # 追加到列表
             
             if not 可用模型參數:  # 如果仍然沒有找到指令
-                print("找不到任何可用指令")  # 如果仍然找不到指令，則輸出提示信息
+                # print("找不到任何可用指令")  # 如果仍然找不到指令，則輸出提示信息
                 return [""]  # 返回一個預設值避免空列表
     else:
-        print(f"請求失敗，狀態碼：{response.status_code}")  # 輸出錯誤狀態碼
+        # print(f"請求失敗，狀態碼：{response.status_code}")  # 輸出錯誤狀態碼
         return [""]  # 返回錯誤信息
     
     return 可用模型參數  # 返回所有找到的指令

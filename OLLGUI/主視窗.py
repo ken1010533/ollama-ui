@@ -183,9 +183,10 @@ def 主視窗口():
         # if 主視窗.
     def on_closing():
         if messagebox.askokcancel("關閉", "您確定要關閉視窗嗎?"):
-            
-            主視窗.destroy()
 
+            主視窗.destroy()
+            模型視窗.模型設定視窗.destroy()
+            設定視窗.設定視窗.destroy()
 
     主視窗.protocol("WM_DELETE_WINDOW", on_closing)
     主視窗.mainloop()

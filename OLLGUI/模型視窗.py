@@ -23,6 +23,7 @@ def 模型設定視窗口():
 
 
     # 創建主視窗
+    global 模型設定視窗
     模型設定視窗 = tk.Tk()
     模型設定視窗.title(模型設定視窗的標題)
     模型設定視窗.resizable(False,False)
