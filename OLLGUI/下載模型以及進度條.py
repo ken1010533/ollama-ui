@@ -1,7 +1,7 @@
 import requests
 import sys
 import 模塊.儲存設定檔 as 設定檔
-模型名稱 = 設定檔.讀取設定("模型名稱")
+# 模型名稱 = 設定檔.讀取設定("模型名稱")
 def 拉取模型(模型名稱, 伺服器位址="http://localhost:11434"):
     路徑 = f"{伺服器位址}/api/pull"
     請求資料 = {"name": 模型名稱}
@@ -44,5 +44,5 @@ def 拉取模型(模型名稱, 伺服器位址="http://localhost:11434"):
 
 # 測試用
 if __name__ == "__main__":
-    模型名稱 = "llama3"
+    模型名稱 = "deepseek-r1:14b"
     拉取模型(模型名稱)
