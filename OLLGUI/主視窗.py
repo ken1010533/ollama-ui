@@ -8,6 +8,7 @@ import 設定視窗
 import 模型視窗
 import 模塊.ollama安裝檢查 as ollama安裝檢查
 from 模塊.OLLAMA_聊天模塊 import 模型對話器
+import 模塊.刪除模型模塊 as 刪除模型模塊
 
 def 主視窗口():
     主視窗的標題 = 語言設定模塊.語言['主視窗']['主視窗標題']
@@ -42,7 +43,7 @@ def 主視窗口():
     def 按鈕關閉():
         主視窗.destroy()
     def 按鈕設定():
-        設定視窗.設定視窗口()
+        設定視窗.設定頁面視窗口()
     def 按鈕模型設定():
         模型視窗.模型設定視窗口()
     def 按鈕關於():
@@ -142,12 +143,18 @@ def 主視窗口():
     新增分頁()
 
     def on_closing():
-        if messagebox.askokcancel("關閉", "您確定要關閉視窗嗎?"):
+        if messagebox.askokcancel("退出", "確定要退出嗎？"):
+            if 模型視窗.模型設定視窗 and 模型視窗.模型設定視窗.winfo_exists():
+                模型視窗.模型設定視窗.destroy()
+            if 設定視窗.設定頁面視窗 and 設定視窗.設定頁面視窗.winfo_exists():
+                設定視窗.設定頁面視窗.destroy()
+            if 刪除模型模塊.刪除頁面視口 and 刪除模型模塊.刪除頁面視口.winfo_exists():
+                刪除模型模塊.刪除頁面視口.destroy()
             主視窗.destroy()
-            模型視窗.模型設定視窗.destroy()
-            設定視窗.設定視窗.destroy()
 
+        # 在主視窗中註冊關閉事件
     主視窗.protocol("WM_DELETE_WINDOW", on_closing)
+
     主視窗.mainloop()
 
 主視窗口()
